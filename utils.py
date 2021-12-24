@@ -2,6 +2,7 @@ import tensorflow as tf
 import pandas as pd
 import numpy as np
 
+#to avoid pandas warnings logs
 pd.options.mode.chained_assignment = None
 
 MAX_LOG_TARGET = 13.19
@@ -14,7 +15,7 @@ def preprocess(sample, end_date, balance) -> list:
     date_range = pd.DataFrame(
         pd.date_range(sample.date.iloc[0], end_date).normalize()
     ).set_index(0)
-    # print(date_range)
+    
     sample.set_index(sample.date, inplace=True)
 
     # join date_range with sample so that we have all days
@@ -163,7 +164,7 @@ def qd_objective(y_true, y_pred):
     return Loss_S
 
 
-# we load the model here, so that it is not loaded at each call
+# we load the model here, so that it is not loaded at each call in the api
 model = tf.keras.models.load_model(
     "./mansa_model.h5", custom_objects={"qd_objective": qd_objective}
 )
