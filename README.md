@@ -18,17 +18,17 @@ Le notebook contient l'ensemble de la démarche (mansa_inference.ipynb), de la p
 
 **Spoiler**
 
-- Aucune recherche d'hyper-paramètre a été effectuée à l'aide de librairie externe (Optuna par exemple, où des algorithmes inspirée par des Bandits - HyperBand, peuvent être adaptés aux réseaux de neuronnes, étant donné le contrôle qu'ils donnent en termes de "budget", par construction, et par opposition à des méthodes de recherche aléatoires par exemple). Cependant quelques essais ont été faits "à la main" pour l'occasion.
+- Aucune recherche d'hyper-paramètre a été effectuée à l'aide de librairie externe (Optuna par exemple, où des algorithmes inspirés par des Bandits - HyperBand, peuvent être adaptés aux réseaux de neuronnes, étant donné le contrôle qu'ils donnent en termes de "budget", par construction, et par opposition à des méthodes de recherche aléatoires par exemple). Cependant quelques essais ont été faits "à la main" pour l'occasion.
 
 - Le choix a été fait de ne pas ajouter de composante auto-régressive dans le modèle (type LSTM, GRU, etc). Leur optimisation est plus lente que d'autres modèles, et peuvent présenter des limites selon la taille des séries temporelles (limites dans l'apprentissage des dépendances de long terme). Il peut être intéressant de les rajouter à des fins d'amélioration cependant, en prenant en compte leurs limites.
 
-- D'autres méthodes axées sur les arbres de régression (XgBoost, LightGBM, ...) peuvent être des concurrents sérieux, à condition de produire des features de qualités et structurées (à l'aide de librairies comme TsFresh par exemple, et/ou des features issues du métier). Le parti pris ici a été d'assumer la nature non structurée des données. 
+- D'autres méthodes axées sur les arbres de régression (XgBoost, LightGBM, ...) peuvent être des concurrents sérieux, à condition de produire des features de qualité et structurées (à l'aide de librairies comme TsFresh par exemple, et/ou des features issues du métier). Le parti pris ici est d'assumer la nature non structurée des données. 
 
-- Des visualisations supplémentaires pourraient être faites, notamment sur les paramètre du mécanisme d'attention. A des fins de contrôle de la convergence et de l'apprentissage du modèle, mais aussi à des fins informatives. 
+- Des visualisations supplémentaires pourraient être faites, notamment sur les paramètres du mécanisme d'attention. A des fins de contrôle de la convergence et de l'apprentissage du modèle, mais aussi à des fins informatives. 
 
 - Des benchmarks n'ont pas été faits, le focus a été mis sur le modèle, mais cette étape est nécessaire pour prendre la pleine mesure des performances. Je pense à de simples benchmark comme des moyennes par exemple.
 
-- Le modèle utilise la syntax de Keras (sous TF 2.x), par simplicité. Tensorboard peut être un outil utile à l'évaluation et le monitoring de l'entraînement du modèle. Cette étape a été jugée prématurés ici. 
+- Le modèle utilise la syntax de Keras (sous TF 2.x), par simplicité. Tensorboard peut être un outil utile à l'évaluation et le monitoring de l'entraînement du modèle. Cette étape a été jugée prématurée ici. 
 
 
 
