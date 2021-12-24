@@ -10,7 +10,7 @@ Le parti pris ici est d'estimer des intervalles de prédiction pour la somme des
 La démarche est inspirée du papier suivant : http://proceedings.mlr.press/v80/pearce18a/pearce18a.pdf
 En bref, le modèle est un réseau de neurones, relativement simple, bien qu'il contienne un mécanisme d'attention (self-attention) afin de prendre en compte les dépendances entre les données d'entrée. 
 
-Son output est donc composé de deux valeurs, une borne supérience et une borne inférieure matérialisant l'intervalle de prédiction (et non de confiance) du modèle. Le papier propose une explication de la différence en partie 2.1 si toutefois c'est nécessaire. L'api retourne en sortie ces deux valeurs, ainsi que leur moyenne pour obtenir un "prediction amount". 
+Son output est donc composé de deux valeurs, une borne supérieure et une borne inférieure matérialisant l'intervalle de prédiction (et non de confiance) du modèle. Le papier propose une explication de la différence en partie 2.1 si toutefois c'est nécessaire. L'api retourne en sortie ces deux valeurs, ainsi que leur moyenne pour obtenir un "prediction amount". 
 Ce type de méthode est je pense adaptée à ce genre de données à composantes stochastiques. Les dépenses sont composées d'éléments réguliers (factures, loyers, etc), mais aussi d'éléments aléatoires.
 
 
@@ -29,6 +29,8 @@ Le notebook contient l'ensemble de la démarche (mansa_inference.ipynb), de la p
 - Des benchmarks n'ont pas été faits, le focus a été mis sur le modèle, mais cette étape est nécessaire pour prendre la pleine mesure des performances. Je pense à de simples benchmark comme des moyennes par exemple.
 
 - Le modèle utilise la syntax de Keras (sous TF 2.x), par simplicité. Tensorboard peut être un outil utile à l'évaluation et le monitoring de l'entraînement du modèle. Cette étape a été jugée prématurée ici. 
+
+- Enfin, les efforts ont été mis dans la construction de la résolution et pas de ses performances. Ce type de modèle nécessite plus de données, c'est donc dans l'anticipation d'une plus grande quantité de données qu'il a été rédigé. 
 
 
 

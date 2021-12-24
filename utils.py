@@ -5,7 +5,13 @@ import numpy as np
 #to avoid pandas warnings logs
 pd.options.mode.chained_assignment = None
 
+
+"""
+some utils functions, a constant and a model for inference
+"""
+
 MAX_LOG_TARGET = 13.19
+
 def preprocess(sample, end_date, balance) -> list:
 
     starting_balance = balance - sample.amount.sum()
